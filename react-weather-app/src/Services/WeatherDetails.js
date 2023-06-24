@@ -29,7 +29,7 @@ const formatCurrentWeather = (data) => {
 };
 
 const formatForcastWeather = (data) => {
-    let{timezone, daily, hourly} = data;
+    let {timezone, daily, hourly} = data;
     daily = daily.slice(1, 6).map((d) => {
         return {
             title: formatToLocalTime(d.dt, timezone, 'ccc'),
@@ -37,7 +37,7 @@ const formatForcastWeather = (data) => {
             icon: d.weather[0].icon
         }
     });
-
+   
     hourly = hourly.slice(1,6).map((d) => {
         return {
             title: formatToLocalTime(d.dt, timezone, 'hh:mm a'),
@@ -68,4 +68,8 @@ const formatToLocalTime = (
     format = "cccc, dd lll yyyy' | local time: 'hh:mm a"
 ) => DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
 
+const iconUrlFromCode = (code) => `http://openweathermap.org/img/wn/${code}@2x.png`;
+
 export default getFormattedWeatherData;
+
+export {formatToLocalTime, iconUrlFromCode};
