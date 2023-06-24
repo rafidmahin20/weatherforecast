@@ -4,6 +4,7 @@ import TopButtons from './Components/TopButtons';
 import Search from './Components/Search';
 import TimeAndLocation from './Components/TimeAndLocation';
 import TemperatureAndDetails from './Components/TemperatureAndDetails';
+import Forecast from './Components/Forecast';
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
 
       <TimeAndLocation/>
       <TemperatureAndDetails/>
+
+      <Forecast/>
     </div>
   );
 }
