@@ -4,17 +4,22 @@ import { UilCloud,  UilTemperature,
   UilWind,
   UilSun,
   UilSunset } from '@iconscout/react-unicons'
+import { iconUrlFromCode } from '../Services/WeatherDetails'
 
-function TemperatureAndDetails() {
+function TemperatureAndDetails({weather: {details, icon, temp, temp_min, temp_max, sunrise, sunset, speed, humidity, feels_like, timezone}}) {
   return (
     <div>
       <div className="flex items-center justify-center py-6 text-xl text-cyan-500">
-      <p>Clear</p>
+      <p>{details}</p>
     </div>
 
     <div className="flex flex-row items-center justify-between text-white py-3">
-      <UilCloud size={50}/>
-      <p className="text-4xl">34°</p>
+      <img
+      src={iconUrlFromCode(icon)}
+      className="w-20"
+      alt=""
+      />
+      <p className="text-5xl">{`${temp}°`}</p>
       <div className="flex flex-col space-y-2">
         <div className="flex font-light text-sm items-center justify-center">
             <UilTemperature size={18} className="mr-1"/>
